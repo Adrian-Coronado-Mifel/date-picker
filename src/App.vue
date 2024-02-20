@@ -1,17 +1,32 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <PropuestaUno :date="date" @update:fecha="printFechaUno" />
+
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import PropuestaUno from './components/PropuestaUno.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    PropuestaUno,
+  },
+  data() {
+    return {
+      //Ejemplo de como pasar la fecha guardada
+      date: {
+        day: '20',
+        month: '05',
+        year: '1998'
+      }
+    };
+  },
+  methods: {
+    printFechaUno(fecha) {
+      console.log('Fecha 1: ', fecha);
+    },
   }
 }
 </script>
@@ -24,5 +39,8 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
 }
 </style>
